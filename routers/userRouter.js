@@ -125,12 +125,12 @@ userRouter.patch("/users/:id/friends/:friendId",auth,async(req,res)=>{
                 user.friendRequests.splice(index,1);
                 await user.save();
                 await sendUser.save();
-                res.status(204).json({"msg":"accepted the request"})
+                res.send({"msg":"accepted the request"})
 
             }else{
                 user.friendRequests.splice(index,1);
                 await user.save();
-                res.status(204).json({"msg":"rejected the request"})
+                res.send({"msg":"rejected the request"})
 
             }
         }
